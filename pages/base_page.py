@@ -1,8 +1,8 @@
 import allure
-from locators.base_page_locators import BasePageLocators as Lb
 from locators.main_page_locators import MainPageLocators as Lm
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 class BasePage:
 
@@ -26,15 +26,10 @@ class BasePage:
 
     @allure.step("Принять куки")
     def accept_cookies(self):
-        self.click_element(Lb.cookies_accept)
+        self.click_element(Lm.cookies_accept)
 
-    @allure.step("Клик на лого Яндекса")
-    def click_yandex_logo(self):
-        self.click_element(Lb.logo_yandex)
+    def send_key(self, locator, key):
+        return self.find_element(locator).send_keys(key)
 
-    @allure.step("Клик на лого Самоката")
-    def click_scooter_logo(self):
-        self.click_element(Lb.logo_scooter)
-
-
-        
+    def get_element_text(self, locator):
+        return self.find_element(locator).text

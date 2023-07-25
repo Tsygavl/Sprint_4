@@ -14,7 +14,7 @@ class TestOrder:
         order_page.accept_cookies()
         order_page.click_order_button_header()
         order_page.make_order(user)
-        order_text = order_page.find_element(Lo.success_order_modal_window).text
+        order_text = order_page.get_element_text(Lo.success_order_modal_window)
         assert "Заказ оформлен" in order_text, 'Ошибка во время оформления заказа'
 
 
@@ -25,5 +25,5 @@ class TestOrder:
         order_page.accept_cookies()
         order_page.click_order_button_middle()
         order_page.make_order(user)
-        order_text = order_page.find_element(Lo.success_order_modal_window).text
+        order_text = order_page.get_element_text(Lo.success_order_modal_window)
         assert "Заказ оформлен" in order_text, "Ошибка во время оформления заказа"

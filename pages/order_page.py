@@ -1,20 +1,11 @@
 import allure
 from selenium.webdriver.common.keys import Keys
-from pages.base_page import BasePage
+from pages.main_page import MainPage
 from locators.order_page_locators import OrderPageLocators as Lo
 
 
-class OrderPage(BasePage):
-    def send_key(self, locator, key):
-        return self.find_element(locator).send_keys(key)
+class OrderPage(MainPage):
 
-    @allure.step("Клик на кнопку 'Заказать' в шапке")
-    def click_order_button_header(self):
-        self.click_element(Lo.order_button_header)
-
-    @allure.step("Нажимаем на кнопку 'Заказать' в центре главной страницы")
-    def click_order_button_middle(self):
-        self.click_element(Lo.order_button_middle)
 
     @allure.step("Заполнение поля Имя")
     def input_name(self, name):

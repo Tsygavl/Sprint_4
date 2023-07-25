@@ -13,7 +13,7 @@ class TestQuestions:
         main_page = MainPage(driver)
         main_page.accept_cookies()
         main_page.scroll_down()
-        main_page.check_answers_for_important_questions(question_index)
+        main_page.click_for_question(question_index)
         actual_result = main_page.find_elements(Lm.important_answers)[question_index].text
         expected_result = QuestionsAnswers.questions_and_answers[main_page.find_elements(
             Lm.important_questions)[question_index].text]
