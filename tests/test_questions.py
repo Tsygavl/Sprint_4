@@ -14,7 +14,7 @@ class TestQuestions:
         main_page.accept_cookies()
         main_page.scroll_down()
         main_page.click_for_question(question_index)
-        actual_result = main_page.find_elements(Lm.important_answers)[question_index].text
-        expected_result = QuestionsAnswers.questions_and_answers[main_page.find_elements(
-            Lm.important_questions)[question_index].text]
+        actual_result = main_page.get_element_text(Lm.important_answers)[question_index]
+        expected_result = QuestionsAnswers.questions_and_answers[main_page.get_element_text(
+            Lm.important_questions)[question_index]]
         assert actual_result == expected_result, 'Ответ не соответствует вопросу'
